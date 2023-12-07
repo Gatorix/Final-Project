@@ -6,86 +6,303 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>480</width>
-    <height>308</height>
+    <width>300</width>
+    <height>450</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QTabWidget" name="tabWidget">
+  <widget class="QGroupBox" name="settings_group">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>90</y>
+     <width>281</width>
+     <height>281</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Step 2: Settings</string>
+   </property>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>120</y>
+      <width>257</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="1">
+      <widget class="QComboBox" name="combo_box_encoding">
+       <item>
+        <property name="text">
+         <string>Unicode (UTF-8)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Unicode (UTF-16)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Simplified Chinese (GB18030)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Traditional Chinese (Big5)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Japanese (Shift-JIS)</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_encoding">
+       <property name="text">
+        <string>Encoding</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>261</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_9">
+     <item row="0" column="0">
+      <widget class="QCheckBox" name="check_box_archive">
+       <property name="text">
+        <string>Archive Results Into Single ZIP File</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QCheckBox" name="check_box_ignore_error">
+       <property name="text">
+        <string>Ignore Encoding Errors</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QCheckBox" name="check_box_extract_text">
+       <property name="text">
+        <string>Extract Plain Text</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>200</y>
+      <width>191</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_5">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_chinese">
+       <property name="text">
+        <string>Convert Chinese</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="combo_box_chinese">
+       <item>
+        <property name="text">
+         <string>Disable</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>To Simplified</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>To Traditional</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>240</y>
+      <width>122</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_convert">
+       <property name="text">
+        <string>Convert to</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="combo_box_convert">
+       <item>
+        <property name="text">
+         <string>*.ass</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>*.srt</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="button_custom">
+    <property name="geometry">
+     <rect>
+      <x>164</x>
+      <y>240</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Custom Style</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>160</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_4">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_offset">
+       <property name="text">
+        <string>Subtitle Offset </string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="line_edit_offset">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>0.0</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="folder_group">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>461</width>
-     <height>291</height>
+     <width>281</width>
+     <height>71</height>
     </rect>
    </property>
-   <property name="currentIndex">
-    <number>0</number>
+   <property name="title">
+    <string>Step 1: Select folder</string>
    </property>
-   <widget class="QWidget" name="tab">
-    <attribute name="title">
-     <string>Format</string>
-    </attribute>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>30</y>
-       <width>71</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>input</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>30</y>
-       <width>201</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>60</y>
-       <width>71</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>output</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>60</y>
-       <width>201</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>261</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_path">
+       <property name="text">
+        <string>Source Path</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="line_edit_path"/>
+     </item>
+    </layout>
    </widget>
-   <widget class="QWidget" name="tab_3">
-    <attribute name="title">
-     <string>Page</string>
-    </attribute>
-   </widget>
-   <widget class="QWidget" name="tab_2">
-    <attribute name="title">
-     <string>translate</string>
-    </attribute>
-   </widget>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>380</y>
+     <width>281</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_6">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_status">
+      <property name="text">
+       <string>Click &quot;Start&quot; when you're ready.</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QPushButton" name="button_start">
+      <property name="text">
+       <string>Start</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QProgressBar" name="progress_bar">
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="value">
+       <number>24</number>
+      </property>
+      <property name="textVisible">
+       <bool>false</bool>
+      </property>
+      <property name="invertedAppearance">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QPushButton" name="button_cancel">
+      <property name="text">
+       <string>Cancel</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>
