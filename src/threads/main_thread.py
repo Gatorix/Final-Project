@@ -31,7 +31,6 @@ class MainThread(QThread):
         self.convert_chinese = ''
         self.offset = 0.0
         self.convert_to = ''
-        self.output_file_path = None
 
         self.signals = Signals()
         self.signals.signal_no_subtitle_files.connect(parent.no_subtitle_files_alert)
@@ -42,7 +41,6 @@ class MainThread(QThread):
     def run(self) -> None:
         self.log.info('Main thread started.')
         self.all_files = get_all_filepath(self.subtitle_path)
-        self.output_file_path = f'./result_{get_current_milli_time()}'
 
         if not self.all_files:
             self.signals.signal_no_subtitle_files.emit()
@@ -56,7 +54,6 @@ class MainThread(QThread):
                     self.log.info(f'txt')
                     result = extract_plain_text(
                         file,
-                        output_file_path=self.output_file_path,
                         is_ignore=self.is_ignore,
                         is_ori_encoding=self.is_ori_encoding,
                         specified_encoding=self.encoding,
