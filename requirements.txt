@@ -1,1 +1,5 @@
 PySide6~=6.6.1
+pysubs2~=1.6.1
+pysub-parser~=1.7.1
+asstosrt~=0.1.6
+OpenCC~=1.1.7
