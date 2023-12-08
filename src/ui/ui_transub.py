@@ -168,7 +168,7 @@ class Ui_MainForm(object):
 
         self.button_start = QPushButton(MainForm)
         self.button_start.setObjectName(u"button_start")
-        self.button_start.setGeometry(QRect(221, 400, 75, 31))
+        self.button_start.setGeometry(QRect(220, 400, 71, 31))
         self.layoutWidget7 = QWidget(MainForm)
         self.layoutWidget7.setObjectName(u"layoutWidget7")
         self.layoutWidget7.setGeometry(QRect(11, 395, 201, 71))
@@ -191,7 +191,7 @@ class Ui_MainForm(object):
 
         self.button_cancel = QPushButton(MainForm)
         self.button_cancel.setObjectName(u"button_cancel")
-        self.button_cancel.setGeometry(QRect(221, 434, 75, 31))
+        self.button_cancel.setGeometry(QRect(220, 434, 71, 31))
 
         self.retranslateUi(MainForm)
 
