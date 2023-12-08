@@ -1,5 +1,6 @@
 import os
 import sys
+from charset_normalizer import detect
 
 
 def resource_path(relative_path):
@@ -28,3 +29,8 @@ def get_all_filepath(folder):
             else:
                 file_path.append(os.path.join(fpath, f))
     return file_path
+
+
+def get_file_encoding(file):
+    with open(file, 'rb') as f:
+        return detect(f.read())['encoding']

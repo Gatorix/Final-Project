@@ -1,6 +1,6 @@
 import yaml
 
-from src.utils.file_path import resource_path, get_parent_path
+from src.utils.files import resource_path, get_parent_path
 
 
 class Yml:
