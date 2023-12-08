@@ -170,23 +170,21 @@ class Ui_MainForm(object):
 
         self.gridLayout_3.addWidget(self.line_edit_path, 0, 1, 1, 1)
 
-        self.layoutWidget7 = QWidget(MainForm)
-        self.layoutWidget7.setObjectName(u"layoutWidget7")
-        self.layoutWidget7.setGeometry(QRect(10, 400, 285, 66))
-        self.gridLayout_6 = QGridLayout(self.layoutWidget7)
+        self.button_start = QPushButton(MainForm)
+        self.button_start.setObjectName(u"button_start")
+        self.button_start.setGeometry(QRect(220, 394, 71, 71))
+        self.widget = QWidget(MainForm)
+        self.widget.setObjectName(u"widget")
+        self.widget.setGeometry(QRect(11, 395, 201, 71))
+        self.gridLayout_6 = QGridLayout(self.widget)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
         self.gridLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.label_status = QLabel(self.layoutWidget7)
+        self.label_status = QLabel(self.widget)
         self.label_status.setObjectName(u"label_status")
 
         self.gridLayout_6.addWidget(self.label_status, 0, 0, 1, 1)
 
-        self.button_start = QPushButton(self.layoutWidget7)
-        self.button_start.setObjectName(u"button_start")
-
-        self.gridLayout_6.addWidget(self.button_start, 0, 1, 1, 1)
-
-        self.progress_bar = QProgressBar(self.layoutWidget7)
+        self.progress_bar = QProgressBar(self.widget)
         self.progress_bar.setObjectName(u"progress_bar")
         self.progress_bar.setAutoFillBackground(False)
         self.progress_bar.setValue(0)
@@ -194,11 +192,6 @@ class Ui_MainForm(object):
         self.progress_bar.setInvertedAppearance(False)
 
         self.gridLayout_6.addWidget(self.progress_bar, 1, 0, 1, 1)
-
-        self.button_cancel = QPushButton(self.layoutWidget7)
-        self.button_cancel.setObjectName(u"button_cancel")
-
-        self.gridLayout_6.addWidget(self.button_cancel, 1, 1, 1, 1)
 
 
         self.retranslateUi(MainForm)
@@ -238,8 +231,7 @@ class Ui_MainForm(object):
         self.toolButton_remove.setText(QCoreApplication.translate("MainForm", u"-", None))
         self.folder_group.setTitle(QCoreApplication.translate("MainForm", u"Step 1: Select File Path", None))
         self.label_path.setText(QCoreApplication.translate("MainForm", u"Path", None))
-        self.label_status.setText(QCoreApplication.translate("MainForm", u"Click \"Start\" when you're ready.", None))
         self.button_start.setText(QCoreApplication.translate("MainForm", u"Start", None))
-        self.button_cancel.setText(QCoreApplication.translate("MainForm", u"Cancel", None))
+        self.label_status.setText(QCoreApplication.translate("MainForm", u"Click \"Start\" when you're ready.", None))
     # retranslateUi
 
