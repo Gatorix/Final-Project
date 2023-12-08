@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'transub_custom_info.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.1
+## Created by: Qt User Interface Compiler version 6.4.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -15,76 +15,54 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QGridLayout, QLabel, QLineEdit,
+from PySide6.QtWidgets import (QApplication, QGridLayout, QGroupBox, QLineEdit,
     QPlainTextEdit, QPushButton, QSizePolicy, QWidget)
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        if not Form.objectName():
-            Form.setObjectName(u"Form")
-        Form.resize(400, 300)
-        self.plainTextEdit = QPlainTextEdit(Form)
-        self.plainTextEdit.setObjectName(u"plainTextEdit")
-        self.plainTextEdit.setGeometry(QRect(10, 40, 381, 211))
-        self.layoutWidget = QWidget(Form)
+class Ui_SubCustomInfo(object):
+    def setupUi(self, SubCustomInfo):
+        if not SubCustomInfo.objectName():
+            SubCustomInfo.setObjectName(u"SubCustomInfo")
+        SubCustomInfo.resize(400, 450)
+        self.layoutWidget = QWidget(SubCustomInfo)
         self.layoutWidget.setObjectName(u"layoutWidget")
-        self.layoutWidget.setGeometry(QRect(230, 260, 158, 32))
+        self.layoutWidget.setGeometry(QRect(230, 410, 158, 32))
         self.gridLayout = QGridLayout(self.layoutWidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.pushButton = QPushButton(self.layoutWidget)
-        self.pushButton.setObjectName(u"pushButton")
+        self.button_save = QPushButton(self.layoutWidget)
+        self.button_save.setObjectName(u"button_save")
 
-        self.gridLayout.addWidget(self.pushButton, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.button_save, 0, 0, 1, 1)
 
-        self.pushButton_2 = QPushButton(self.layoutWidget)
-        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.button_close = QPushButton(self.layoutWidget)
+        self.button_close.setObjectName(u"button_close")
 
-        self.gridLayout.addWidget(self.pushButton_2, 0, 1, 1, 1)
+        self.gridLayout.addWidget(self.button_close, 0, 1, 1, 1)
 
-        self.widget = QWidget(Form)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(10, 2, 231, 31))
-        self.gridLayout_2 = QGridLayout(self.widget)
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.label = QLabel(self.widget)
-        self.label.setObjectName(u"label")
+        self.groupBox = QGroupBox(SubCustomInfo)
+        self.groupBox.setObjectName(u"groupBox")
+        self.groupBox.setGeometry(QRect(10, 50, 381, 361))
+        self.plain_text_edit = QPlainTextEdit(self.groupBox)
+        self.plain_text_edit.setObjectName(u"plain_text_edit")
+        self.plain_text_edit.setGeometry(QRect(10, 20, 361, 331))
+        self.groupBox_2 = QGroupBox(SubCustomInfo)
+        self.groupBox_2.setObjectName(u"groupBox_2")
+        self.groupBox_2.setGeometry(QRect(10, 0, 381, 51))
+        self.line_edit_info_name = QLineEdit(self.groupBox_2)
+        self.line_edit_info_name.setObjectName(u"line_edit_info_name")
+        self.line_edit_info_name.setGeometry(QRect(10, 20, 361, 21))
 
-        self.gridLayout_2.addWidget(self.label, 0, 0, 1, 1)
+        self.retranslateUi(SubCustomInfo)
 
-        self.lineEdit = QLineEdit(self.widget)
-        self.lineEdit.setObjectName(u"lineEdit")
-
-        self.gridLayout_2.addWidget(self.lineEdit, 0, 1, 1, 1)
-
-
-        self.retranslateUi(Form)
-
-        QMetaObject.connectSlotsByName(Form)
+        QMetaObject.connectSlotsByName(SubCustomInfo)
     # setupUi
 
-    def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
-        self.plainTextEdit.setPlainText(QCoreApplication.translate("Form", u" [Script Info]\n"
-" ; This is a Sub Station Alpha v4 script.\n"
-" ; For Sub Station Alpha info and downloads,\n"
-" ; go to http://www.eswat.demon.co.uk/\n"
-" Title: Neon Genesis Evangelion - Episode 26 (neutral Spanish)\n"
-" Original Script: RoRo\n"
-" Script Updated By: version 2.8.01\n"
-" ScriptType: v4.00\n"
-" Collisions: Normal\n"
-" PlayResY: 600\n"
-" PlayDepth: 0\n"
-" Timer: 100,0000\n"
-"  \n"
-" [V4 Styles]\n"
-" Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, TertiaryColour, BackColour, Bold, Italic, BorderStyle, Outline, Shadow, \n"
-"    Alignment, MarginL, MarginR, MarginV, AlphaLevel, Encoding\n"
-" Style: DefaultVCD, Arial,28,11861244,11861244,11861244,-2147483640,-1,0,1,1,2,2,30,30,30,0,0", None))
-        self.pushButton.setText(QCoreApplication.translate("Form", u"Save", None))
-        self.pushButton_2.setText(QCoreApplication.translate("Form", u"Close", None))
-        self.label.setText(QCoreApplication.translate("Form", u"Info Name: ", None))
+    def retranslateUi(self, SubCustomInfo):
+        SubCustomInfo.setWindowTitle(QCoreApplication.translate("SubCustomInfo", u"Form", None))
+        self.button_save.setText(QCoreApplication.translate("SubCustomInfo", u"Save", None))
+        self.button_close.setText(QCoreApplication.translate("SubCustomInfo", u"Close", None))
+        self.groupBox.setTitle(QCoreApplication.translate("SubCustomInfo", u"Info Details", None))
+        self.plain_text_edit.setPlainText("")
+        self.groupBox_2.setTitle(QCoreApplication.translate("SubCustomInfo", u"Info Title", None))
     # retranslateUi
 

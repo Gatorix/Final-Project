@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'transub.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.1
+## Created by: Qt User Interface Compiler version 6.4.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -19,12 +19,12 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QGridLayout,
     QGroupBox, QLabel, QLineEdit, QProgressBar,
     QPushButton, QSizePolicy, QToolButton, QWidget)
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        if not Form.objectName():
-            Form.setObjectName(u"Form")
-        Form.resize(300, 470)
-        self.settings_group = QGroupBox(Form)
+class Ui_MainForm(object):
+    def setupUi(self, MainForm):
+        if not MainForm.objectName():
+            MainForm.setObjectName(u"MainForm")
+        MainForm.resize(300, 470)
+        self.settings_group = QGroupBox(MainForm)
         self.settings_group.setObjectName(u"settings_group")
         self.settings_group.setGeometry(QRect(10, 70, 281, 321))
         self.layoutWidget = QWidget(self.settings_group)
@@ -71,7 +71,7 @@ class Ui_Form(object):
 
         self.layoutWidget2 = QWidget(self.settings_group)
         self.layoutWidget2.setObjectName(u"layoutWidget2")
-        self.layoutWidget2.setGeometry(QRect(10, 200, 245, 31))
+        self.layoutWidget2.setGeometry(QRect(10, 200, 211, 31))
         self.gridLayout_5 = QGridLayout(self.layoutWidget2)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.gridLayout_5.setContentsMargins(0, 0, 0, 0)
@@ -122,117 +122,124 @@ class Ui_Form(object):
 
         self.gridLayout_4.addWidget(self.line_edit_offset, 0, 1, 1, 1)
 
-        self.widget = QWidget(self.settings_group)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(10, 160, 261, 31))
-        self.gridLayout_7 = QGridLayout(self.widget)
+        self.layoutWidget5 = QWidget(self.settings_group)
+        self.layoutWidget5.setObjectName(u"layoutWidget5")
+        self.layoutWidget5.setGeometry(QRect(12, 160, 261, 31))
+        self.gridLayout_7 = QGridLayout(self.layoutWidget5)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
         self.gridLayout_7.setContentsMargins(0, 0, 0, 0)
-        self.label_chinese_2 = QLabel(self.widget)
+        self.toolButton_add = QToolButton(self.layoutWidget5)
+        self.toolButton_add.setObjectName(u"toolButton_add")
+
+        self.gridLayout_7.addWidget(self.toolButton_add, 0, 2, 1, 1)
+
+        self.combo_box_custom_info = QComboBox(self.layoutWidget5)
+        self.combo_box_custom_info.addItem("")
+        self.combo_box_custom_info.setObjectName(u"combo_box_custom_info")
+
+        self.gridLayout_7.addWidget(self.combo_box_custom_info, 0, 1, 1, 1)
+
+        self.label_chinese_2 = QLabel(self.layoutWidget5)
         self.label_chinese_2.setObjectName(u"label_chinese_2")
 
         self.gridLayout_7.addWidget(self.label_chinese_2, 0, 0, 1, 1)
 
-        self.combo_box_chinese_2 = QComboBox(self.widget)
-        self.combo_box_chinese_2.addItem("")
-        self.combo_box_chinese_2.setObjectName(u"combo_box_chinese_2")
+        self.toolButton_remove = QToolButton(self.layoutWidget5)
+        self.toolButton_remove.setObjectName(u"toolButton_remove")
+        self.toolButton_remove.setEnabled(True)
 
-        self.gridLayout_7.addWidget(self.combo_box_chinese_2, 0, 1, 1, 1)
+        self.gridLayout_7.addWidget(self.toolButton_remove, 0, 3, 1, 1)
 
-        self.toolButton = QToolButton(self.widget)
-        self.toolButton.setObjectName(u"toolButton")
-
-        self.gridLayout_7.addWidget(self.toolButton, 0, 2, 1, 1)
-
-        self.folder_group = QGroupBox(Form)
+        self.folder_group = QGroupBox(MainForm)
         self.folder_group.setObjectName(u"folder_group")
         self.folder_group.setGeometry(QRect(10, 0, 281, 71))
-        self.layoutWidget5 = QWidget(self.folder_group)
-        self.layoutWidget5.setObjectName(u"layoutWidget5")
-        self.layoutWidget5.setGeometry(QRect(10, 30, 261, 23))
-        self.gridLayout_3 = QGridLayout(self.layoutWidget5)
+        self.layoutWidget6 = QWidget(self.folder_group)
+        self.layoutWidget6.setObjectName(u"layoutWidget6")
+        self.layoutWidget6.setGeometry(QRect(10, 30, 261, 23))
+        self.gridLayout_3 = QGridLayout(self.layoutWidget6)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.label_path = QLabel(self.layoutWidget5)
+        self.label_path = QLabel(self.layoutWidget6)
         self.label_path.setObjectName(u"label_path")
 
         self.gridLayout_3.addWidget(self.label_path, 0, 0, 1, 1)
 
-        self.line_edit_path = QLineEdit(self.layoutWidget5)
+        self.line_edit_path = QLineEdit(self.layoutWidget6)
         self.line_edit_path.setObjectName(u"line_edit_path")
         self.line_edit_path.setReadOnly(True)
 
         self.gridLayout_3.addWidget(self.line_edit_path, 0, 1, 1, 1)
 
-        self.layoutWidget6 = QWidget(Form)
-        self.layoutWidget6.setObjectName(u"layoutWidget6")
-        self.layoutWidget6.setGeometry(QRect(10, 400, 285, 66))
-        self.gridLayout_6 = QGridLayout(self.layoutWidget6)
+        self.layoutWidget7 = QWidget(MainForm)
+        self.layoutWidget7.setObjectName(u"layoutWidget7")
+        self.layoutWidget7.setGeometry(QRect(10, 400, 285, 66))
+        self.gridLayout_6 = QGridLayout(self.layoutWidget7)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
         self.gridLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.label_status = QLabel(self.layoutWidget6)
+        self.label_status = QLabel(self.layoutWidget7)
         self.label_status.setObjectName(u"label_status")
 
         self.gridLayout_6.addWidget(self.label_status, 0, 0, 1, 1)
 
-        self.button_start = QPushButton(self.layoutWidget6)
+        self.button_start = QPushButton(self.layoutWidget7)
         self.button_start.setObjectName(u"button_start")
 
         self.gridLayout_6.addWidget(self.button_start, 0, 1, 1, 1)
 
-        self.progress_bar = QProgressBar(self.layoutWidget6)
+        self.progress_bar = QProgressBar(self.layoutWidget7)
         self.progress_bar.setObjectName(u"progress_bar")
         self.progress_bar.setAutoFillBackground(False)
-        self.progress_bar.setValue(24)
+        self.progress_bar.setValue(0)
         self.progress_bar.setTextVisible(False)
         self.progress_bar.setInvertedAppearance(False)
 
         self.gridLayout_6.addWidget(self.progress_bar, 1, 0, 1, 1)
 
-        self.button_cancel = QPushButton(self.layoutWidget6)
+        self.button_cancel = QPushButton(self.layoutWidget7)
         self.button_cancel.setObjectName(u"button_cancel")
 
         self.gridLayout_6.addWidget(self.button_cancel, 1, 1, 1, 1)
 
 
-        self.retranslateUi(Form)
+        self.retranslateUi(MainForm)
 
-        QMetaObject.connectSlotsByName(Form)
+        QMetaObject.connectSlotsByName(MainForm)
     # setupUi
 
-    def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
-        self.settings_group.setTitle(QCoreApplication.translate("Form", u"Step 2: Settings", None))
-        self.combo_box_encoding.setItemText(0, QCoreApplication.translate("Form", u"Unicode (UTF-8)", None))
-        self.combo_box_encoding.setItemText(1, QCoreApplication.translate("Form", u"Unicode (UTF-16)", None))
-        self.combo_box_encoding.setItemText(2, QCoreApplication.translate("Form", u"Simplified Chinese (GB18030)", None))
-        self.combo_box_encoding.setItemText(3, QCoreApplication.translate("Form", u"Traditional Chinese (Big5)", None))
-        self.combo_box_encoding.setItemText(4, QCoreApplication.translate("Form", u"Japanese (Shift-JIS)", None))
+    def retranslateUi(self, MainForm):
+        MainForm.setWindowTitle(QCoreApplication.translate("MainForm", u"Form", None))
+        self.settings_group.setTitle(QCoreApplication.translate("MainForm", u"Step 2: Settings", None))
+        self.combo_box_encoding.setItemText(0, QCoreApplication.translate("MainForm", u"Unicode (UTF-8)", None))
+        self.combo_box_encoding.setItemText(1, QCoreApplication.translate("MainForm", u"Unicode (UTF-16)", None))
+        self.combo_box_encoding.setItemText(2, QCoreApplication.translate("MainForm", u"Simplified Chinese (GB18030)", None))
+        self.combo_box_encoding.setItemText(3, QCoreApplication.translate("MainForm", u"Traditional Chinese (Big5)", None))
+        self.combo_box_encoding.setItemText(4, QCoreApplication.translate("MainForm", u"Japanese (Shift-JIS)", None))
 
-        self.label_encoding.setText(QCoreApplication.translate("Form", u"Encoding", None))
-        self.check_box_archive.setText(QCoreApplication.translate("Form", u"Archive Results Into Single ZIP File", None))
-        self.check_box_ignore_error.setText(QCoreApplication.translate("Form", u"Ignore Encoding Errors", None))
-        self.check_box_extract_text.setText(QCoreApplication.translate("Form", u"Extract Plain Text", None))
-        self.label_chinese.setText(QCoreApplication.translate("Form", u"Convert Chinese", None))
-        self.combo_box_chinese.setItemText(0, QCoreApplication.translate("Form", u"Disable", None))
-        self.combo_box_chinese.setItemText(1, QCoreApplication.translate("Form", u"To Simplified", None))
-        self.combo_box_chinese.setItemText(2, QCoreApplication.translate("Form", u"To Traditional", None))
+        self.label_encoding.setText(QCoreApplication.translate("MainForm", u"Encoding", None))
+        self.check_box_archive.setText(QCoreApplication.translate("MainForm", u"Archive Results Into Single ZIP File", None))
+        self.check_box_ignore_error.setText(QCoreApplication.translate("MainForm", u"Ignore Encoding Errors", None))
+        self.check_box_extract_text.setText(QCoreApplication.translate("MainForm", u"Extract Plain Text", None))
+        self.label_chinese.setText(QCoreApplication.translate("MainForm", u"Convert Chinese", None))
+        self.combo_box_chinese.setItemText(0, QCoreApplication.translate("MainForm", u"Disable", None))
+        self.combo_box_chinese.setItemText(1, QCoreApplication.translate("MainForm", u"To Simplified", None))
+        self.combo_box_chinese.setItemText(2, QCoreApplication.translate("MainForm", u"To Traditional", None))
 
-        self.label_convert.setText(QCoreApplication.translate("Form", u"Convert to", None))
-        self.combo_box_convert.setItemText(0, QCoreApplication.translate("Form", u"*.ass", None))
-        self.combo_box_convert.setItemText(1, QCoreApplication.translate("Form", u"*.srt", None))
+        self.label_convert.setText(QCoreApplication.translate("MainForm", u"Convert to", None))
+        self.combo_box_convert.setItemText(0, QCoreApplication.translate("MainForm", u"*.ass", None))
+        self.combo_box_convert.setItemText(1, QCoreApplication.translate("MainForm", u"*.srt", None))
 
-        self.label_offset.setText(QCoreApplication.translate("Form", u"Subtitle Offset ", None))
+        self.label_offset.setText(QCoreApplication.translate("MainForm", u"Subtitle Offset ", None))
         self.line_edit_offset.setText("")
-        self.line_edit_offset.setPlaceholderText(QCoreApplication.translate("Form", u"0.0", None))
-        self.label_chinese_2.setText(QCoreApplication.translate("Form", u"Custom *.ass Info", None))
-        self.combo_box_chinese_2.setItemText(0, QCoreApplication.translate("Form", u"None", None))
+        self.line_edit_offset.setPlaceholderText(QCoreApplication.translate("MainForm", u"0.0", None))
+        self.toolButton_add.setText(QCoreApplication.translate("MainForm", u"+", None))
+        self.combo_box_custom_info.setItemText(0, QCoreApplication.translate("MainForm", u"None", None))
 
-        self.toolButton.setText(QCoreApplication.translate("Form", u"+", None))
-        self.folder_group.setTitle(QCoreApplication.translate("Form", u"Step 1: Select folder", None))
-        self.label_path.setText(QCoreApplication.translate("Form", u"Source Path", None))
-        self.label_status.setText(QCoreApplication.translate("Form", u"Click \"Start\" when you're ready.", None))
-        self.button_start.setText(QCoreApplication.translate("Form", u"Start", None))
-        self.button_cancel.setText(QCoreApplication.translate("Form", u"Cancel", None))
+        self.label_chinese_2.setText(QCoreApplication.translate("MainForm", u"Custom *.ass Info", None))
+        self.toolButton_remove.setText(QCoreApplication.translate("MainForm", u"-", None))
+        self.folder_group.setTitle(QCoreApplication.translate("MainForm", u"Step 1: Select File Path", None))
+        self.label_path.setText(QCoreApplication.translate("MainForm", u"Path", None))
+        self.label_status.setText(QCoreApplication.translate("MainForm", u"Click \"Start\" when you're ready.", None))
+        self.button_start.setText(QCoreApplication.translate("MainForm", u"Start", None))
+        self.button_cancel.setText(QCoreApplication.translate("MainForm", u"Cancel", None))
     # retranslateUi
 
