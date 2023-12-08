@@ -124,7 +124,7 @@ class Ui_MainForm(object):
 
         self.layoutWidget5 = QWidget(self.settings_group)
         self.layoutWidget5.setObjectName(u"layoutWidget5")
-        self.layoutWidget5.setGeometry(QRect(13, 165, 211, 23))
+        self.layoutWidget5.setGeometry(QRect(10, 160, 211, 31))
         self.gridLayout_7 = QGridLayout(self.layoutWidget5)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
         self.gridLayout_7.setContentsMargins(0, 0, 0, 0)
