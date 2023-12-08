@@ -5,7 +5,7 @@ a = Analysis(
     ['app.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[('./src/config/saved_config.yml','./src/config')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

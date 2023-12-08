@@ -6,7 +6,7 @@ from src.utils.file_path import resource_path, get_parent_path
 class Yml:
     def __init__(self, file_path=None):
         if not file_path:
-            self.file_path = resource_path(fr'{get_parent_path()}\config\saved_config.yml')
+            self.file_path = resource_path(fr'{get_parent_path()}/config/saved_config.yml')
         else:
             self.file_path = file_path
         self.data = self.__load_yml()
