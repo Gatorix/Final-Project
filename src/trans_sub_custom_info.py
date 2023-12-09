@@ -1,8 +1,12 @@
+import logging.config
+
+import yaml
 from PySide6.QtCore import Slot, QObject, Signal
 from PySide6.QtWidgets import QMainWindow, QMessageBox
 
 from src.ui.ui_transub_custom_info import Ui_SubCustomInfo
-from src.utils.yml import Yml
+from src.utils.files import resource_path, get_parent_path
+from src.utils.yml import Yml, logger
 
 DEFAULT_INFO = '''[Script Info]
 ; This is a Sub Station Alpha v4 script.
@@ -30,6 +34,8 @@ class CustomInfoWindow(QMainWindow):
         super(CustomInfoWindow, self).__init__()
         self.ui = Ui_SubCustomInfo()
         self.ui.setupUi(self)
+
+        self.log = logger()
 
         self.signal = InfoWindowClose()
 
@@ -63,12 +69,14 @@ class CustomInfoWindow(QMainWindow):
     @Slot()
     def on_save(self):
         if not self.ui.line_edit_info_name.text():
+            self.log.warning('Please enter the info name.')
             QMessageBox.warning(
                 self, 'Warning', 'Please enter the info name.'
             )
 
         elif any(['[Script Info]' not in self.ui.plain_text_edit.toPlainText(),
                   '[V4 Styles]' not in self.ui.plain_text_edit.toPlainText()]):
+            self.log.warning('Info must contains [Script Info] and [V4 Styles] labels.')
             QMessageBox.warning(
                 self, 'Warning', 'Info must contains [Script Info] and [V4 Styles] labels.'
             )
@@ -81,10 +89,12 @@ class CustomInfoWindow(QMainWindow):
             if save_result.get('result'):
                 self.is_changed = False
                 self.close()
+                self.log.info('Info save successful.')
             else:
+                self.log.error(f'Info save failed. Cause {save_result.get("msg")}')
                 QMessageBox.warning(
                     self,
-                    'warning',
+                    'Warning',
                     save_result.get('msg')
                 )
         self.signal.close_window_single.emit()

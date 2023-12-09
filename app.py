@@ -2,7 +2,7 @@ import sys
 
 from PySide6.QtWidgets import QApplication
 
-from src.transub_main import MainWindow
+from src.trans_main import MainWindow
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

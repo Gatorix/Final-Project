@@ -1,3 +1,5 @@
+import logging.config
+
 import yaml
 
 from src.utils.files import resource_path, get_parent_path
@@ -23,7 +25,10 @@ class Yml:
             return []
 
     def get_specific_details(self, title: str):
-        return self.data.get(title)
+        try:
+            return self.data.get(title)
+        except AttributeError:
+            return ''
 
     def write_info_to_yml(self, title, details):
         if title in self.get_all_title():
@@ -39,15 +44,16 @@ class Yml:
         if title in self.get_all_title():
             self.data.pop(title)
 
-        if len(self.get_all_title()) != 0:
-            with open(self.file_path, 'w', encoding='utf-8') as file:
+        with open(self.file_path, 'w', encoding='utf-8') as file:
+            if len(self.get_all_title()) != 0:
                 yaml.dump(self.data if self.data else None, file, default_style='>')
-        else:
-            with open(self.file_path, 'w', encoding='utf-8') as file:
+            else:
                 file.truncate(0)
 
-# if __name__ == '__main__':
-#     Yml().remove_specific_title('test1')
-#     print(Yml().get_all_title())
-#     print(Yml().get_specific_details('tesd'))
-#     Yml().write_info_to_yml('title7', 'a\nb\nv\nc\nc')
+
+def logger():
+    with open(resource_path(fr"{get_parent_path()}/config/logging.yml"), "r") as f:
+        dict_conf = yaml.safe_load(f)
+
+    logging.config.dictConfig(dict_conf)
+    return logging.getLogger()
