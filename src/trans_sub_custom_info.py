@@ -1,11 +1,7 @@
-import logging.config
-
-import yaml
 from PySide6.QtCore import Slot, QObject, Signal
 from PySide6.QtWidgets import QMainWindow, QMessageBox
 
 from src.ui.ui_transub_custom_info import Ui_SubCustomInfo
-from src.utils.files import resource_path, get_parent_path
 from src.utils.yml import Yml, logger
 
 DEFAULT_INFO = '''[Script Info]

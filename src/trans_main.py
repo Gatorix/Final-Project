@@ -39,6 +39,8 @@ class MainWindow(QMainWindow):
 
         self.ui.button_start.clicked.connect(self.on_start_clicked)
 
+        self.main_thread.finished.connect(self.set_start_button_to_enable)
+
     @Slot()
     def on_extract_text_clicked(self):
         if self.ui.check_box_extract_text.isChecked():
@@ -81,19 +83,17 @@ class MainWindow(QMainWindow):
         self.ui.progress_bar.setValue(value)
 
     @Slot()
-    def set_running_status_to_true(self):
-        self.is_running = True
-
-    @Slot()
-    def set_running_status_to_false(self):
-        self.is_running = False
+    def set_process_max_range(self, value):
+        self.ui.progress_bar.setMaximum(value)
 
     @Slot()
     def set_start_button_to_disable(self):
+        self.is_running = True
         self.ui.button_start.setDisabled(True)
 
     @Slot()
     def set_start_button_to_enable(self):
+        self.is_running = False
         self.ui.button_start.setEnabled(True)
 
     @Slot()
@@ -131,16 +131,16 @@ class MainWindow(QMainWindow):
             )
         else:
             self.log.info('Init the main thread.')
-            self.main_thread.is_archive = self.ui.check_box_archive
-            self.main_thread.is_ignore = self.ui.check_box_ignore_error
-            self.main_thread.is_text = self.ui.check_box_extract_text
-            self.main_thread.encoding = self.ui.combo_box_encoding
+            self.main_thread.subtitle_path = self.ui.line_edit_path.text()
+            self.main_thread.is_archive = self.ui.check_box_archive.isChecked()
+            self.main_thread.is_ignore = self.ui.check_box_ignore_error.isChecked()
+            self.main_thread.is_text = self.ui.check_box_extract_text.isChecked()
+            self.main_thread.encoding = self.ui.combo_box_encoding.currentText()
             self.main_thread.custom_ass_info = Yml().get_specific_details(self.ui.combo_box_custom_info.currentText())
             self.main_thread.convert_chinese = self.ui.combo_box_chinese.currentText()
             self.main_thread.offset = self.ui.line_edit_offset.text()
             self.main_thread.convert_to = self.ui.combo_box_convert.currentText()
 
-            self.set_running_status_to_true()
             self.set_start_button_to_disable()
 
             self.main_thread.start()
@@ -152,7 +152,5 @@ class MainWindow(QMainWindow):
                     self, 'Question', 'Convert task is still running, Are you sure you want to cancel?'
             ) == QMessageBox.StandardButton.Yes:
                 pass
-                # TODO
             else:
                 pass
-                # TODO
