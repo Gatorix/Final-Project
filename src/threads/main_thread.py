@@ -15,6 +15,7 @@ class MainThread(QThread):
 
         self.log = logger()
 
+        self.subtitle_path = None
         self.is_archive = False
         self.is_ignore = False
         self.is_text = False
@@ -26,6 +27,19 @@ class MainThread(QThread):
 
         self.signals = Signals()
         self.signals.signal_process_value.connect(parent.set_progress_bar_value)
+        self.signals.signal_process_max_range.connect(parent.set_process_max_range)
 
     def run(self) -> None:
         self.log.info('Main thread started.')
+        self.all_files = self.get_all_subtitle_files()
+        self.signals.signal_process_max_range.emit(len(self.all_files))
+        for idx, file in self.all_files:
+            if self.is_text:
+                pass
+            else:
+                pass
+        self.log.info('Main thread finished.')
+        self.finished.emit()
+
+    def get_all_subtitle_files(self):
+        return []
