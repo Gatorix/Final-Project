@@ -144,13 +144,20 @@ class MainWindow(QMainWindow):
             )
         else:
             self.log.info('Init the main thread.')
+
+            convert_chinese_kv = {
+                'To Simplified': 't2s',
+                'To Traditional': 's2t',
+                'Disable': None
+            }
+
             self.main_thread.subtitle_path = self.ui.line_edit_path.text()
             self.main_thread.is_archive = self.ui.check_box_archive.isChecked()
             self.main_thread.is_ignore = self.ui.check_box_ignore_error.isChecked()
             self.main_thread.is_ori_encoding = self.ui.check_box_is_original_encoding.isChecked()
             self.main_thread.encoding = extract_text_between_bracket(self.ui.combo_box_encoding.currentText())
             self.main_thread.custom_ass_info = Yml().get_specific_details(self.ui.combo_box_custom_info.currentText())
-            self.main_thread.convert_chinese = self.ui.combo_box_chinese.currentText()
+            self.main_thread.convert_chinese = convert_chinese_kv.get(self.ui.combo_box_chinese.currentText())
             self.main_thread.offset = self.ui.line_edit_offset.text()
             self.main_thread.convert_to = self.ui.combo_box_convert.currentText()
 

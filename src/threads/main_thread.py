@@ -50,7 +50,8 @@ class MainThread(QThread):
             self.signals.signal_process_max_range.emit(len(self.all_files))
 
             for idx, file in enumerate(self.all_files):
-                self.log.info(f'processing {file}')
+                self.log.info(f'Processing {file}')
+                self.signals.signal_status.emit(f'Processing({idx}-{len(self.all_files)}): {file}')
                 if 'txt' in self.convert_to:
                     self.log.info(f'txt')
                     result = extract_plain_text(
@@ -58,11 +59,15 @@ class MainThread(QThread):
                         output_file_path=self.output_file_path,
                         is_ignore=self.is_ignore,
                         is_ori_encoding=self.is_ori_encoding,
-                        specified_encoding=self.encoding
+                        specified_encoding=self.encoding,
+                        convert_chinese_method=self.convert_chinese
                     )
                     if not result.get('result'):
                         self.log.error(result.get('msg'))
                     self.signals.signal_status.emit(result.get('msg'))
+
+                elif 'srt' in self.convert_to:
+                    pass
 
                 else:
                     pass

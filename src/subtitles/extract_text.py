@@ -3,8 +3,8 @@ import re
 
 from pysubparser import parser
 
+from src.subtitles.convert_chinese import convert_chinese
 from src.utils.files import get_file_encoding
-from src.utils.times import get_current_milli_time
 
 
 def extract_plain_text(
@@ -12,9 +12,9 @@ def extract_plain_text(
         output_file_path=None,
         is_ori_encoding=False,
         specified_encoding=None,
-        is_ignore=False
+        is_ignore=False,
+        convert_chinese_method=None
 ):
-    print(output_file_path)
     input_file_encoding = get_file_encoding(input_file)
     subtitles = parser.parse(input_file, encoding=input_file_encoding)
 
@@ -29,7 +29,10 @@ def extract_plain_text(
                 errors='ignore' if is_ignore else None
         ) as f:
             for subtitle in subtitles:
-                f.write(f'{subtitle.text}\n')
+                if convert_chinese_method:
+                    f.write(f'{convert_chinese(subtitle.text, convert_chinese_method)}\n')
+                else:
+                    f.write(f'{subtitle.text}\n')
             return {'result': True, 'msg': 'Extract successful.'}
     except UnicodeEncodeError as uee:
         return {'result': False, 'msg': uee}
