@@ -1,8 +1,6 @@
-import time
-
 from PySide6.QtCore import Signal, QObject, QThread
 
-from src.subtitles.extract_text import extract_plain_text
+from src.subtitles.subtitles_converter import convert
 from src.utils.times import get_current_milli_time
 from src.utils.yml import logger
 from src.utils.files import get_all_filepath
@@ -42,6 +40,8 @@ class MainThread(QThread):
         self.log.info('Main thread started.')
         self.all_files = get_all_filepath(self.subtitle_path)
 
+        output_file_path = f'./result_{get_current_milli_time()}'
+
         if not self.all_files:
             self.signals.signal_no_subtitle_files.emit()
         else:
@@ -49,25 +49,21 @@ class MainThread(QThread):
 
             for idx, file in enumerate(self.all_files):
                 self.log.info(f'Processing {file}')
-                self.signals.signal_status.emit(f'Processing({idx}-{len(self.all_files)}): {file}')
-                if 'txt' in self.convert_to:
-                    self.log.info(f'txt')
-                    result = extract_plain_text(
-                        file,
-                        is_ignore=self.is_ignore,
-                        is_ori_encoding=self.is_ori_encoding,
-                        specified_encoding=self.encoding,
-                        convert_chinese_method=self.convert_chinese
-                    )
-                    if not result.get('result'):
-                        self.log.error(result.get('msg'))
+                self.signals.signal_status.emit(f'Processing({idx+1}-{len(self.all_files)}): {file}')
+
+                result = convert(
+                    input_file=file,
+                    convert_to=self.convert_to,
+                    output_file_path=output_file_path,
+                    is_ori_encoding=self.is_ori_encoding,
+                    is_ignore=self.is_ignore,
+                    specified_encoding=self.encoding,
+                    ass_headers=self.custom_ass_info,
+                    convert_chinese_method=self.convert_chinese,
+                    shift=self.offset
+                )
+                if not result.get('result'):
                     self.signals.signal_status.emit(result.get('msg'))
-
-                elif 'srt' in self.convert_to:
-                    pass
-
-                else:
-                    pass
 
                 self.signals.signal_process_value.emit(idx + 1)
 
