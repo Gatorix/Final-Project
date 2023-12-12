@@ -3,7 +3,6 @@ import re
 
 from pysubparser import parser
 
-from src.subtitles.convert_chinese import convert_chinese
 from src.utils.files import get_file_encoding
 
 
@@ -28,12 +27,19 @@ def extract_plain_text(
                 encoding=input_file_encoding if is_ori_encoding else specified_encoding,
                 errors='ignore' if is_ignore else None
         ) as f:
+
+            if convert_chinese_method:
+                import opencc
+                converter = opencc.OpenCC(convert_chinese_method)
+
             for subtitle in subtitles:
                 if convert_chinese_method:
-                    f.write(f'{convert_chinese(subtitle.text, convert_chinese_method)}\n')
+                    f.write(f'{converter.convert(subtitle.text)}\n')
                 else:
                     f.write(f'{subtitle.text}\n')
+
             return {'result': True, 'msg': 'Extract successful.'}
+
     except UnicodeEncodeError as uee:
         return {'result': False, 'msg': uee}
 
