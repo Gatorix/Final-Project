@@ -1,10 +1,12 @@
-from PySide6.QtCore import Slot, QDir
+from PySide6.QtCore import Slot, QDir, QSize
+from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QMainWindow, QFileDialog, QStyle, QLineEdit, QMessageBox
 
 from src.subtitles.extract_text import extract_text_between_bracket
 from src.threads.main_thread import MainThread
 from src.ui.ui_transub import Ui_MainForm
 from src.trans_sub_custom_info import CustomInfoWindow
+from src.utils.files import resource_path, get_parent_path
 from src.utils.yml import Yml, logger
 
 
@@ -13,6 +15,10 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainForm()
         self.ui.setupUi(self)
+
+        icon = QIcon()
+        icon.addFile(resource_path(fr'{get_parent_path()}\\icon\\qtforpython.ico'), QSize(), QIcon.Normal, QIcon.Off)
+        self.setWindowIcon(icon)
 
         self.log = logger()
 
