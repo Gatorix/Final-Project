@@ -9,13 +9,13 @@ from src.utils.times import get_current_milli_time
 
 def convert(
         input_file,
+        convert_to,
         is_ori_encoding=False,
         is_ignore=False,
         specified_encoding=None,
         ass_headers=None,
         convert_chinese_method=None,
-        shift=0.0,
-        convert_to=None
+        shift=0.0
 ):
     input_file_encoding = get_file_encoding(input_file)
     output_file_path = f'./result_{get_current_milli_time()}'
@@ -67,6 +67,7 @@ def convert(
     if convert_chinese_method:
         import opencc
         converter = opencc.OpenCC(convert_chinese_method)
+        print(output_file)
         # with open(output_file, 'r', encoding=input_file_encoding) as f:
         #     converter.convert(f.read())
 
@@ -74,7 +75,7 @@ def convert(
 def change_ass_headers(file, headers):
     pass
 
-# if __name__ == '__main__':
+if __name__ == '__main__':
 # a= ass2srt(
 #     r'C:\Users\kingdee\Desktop\Final-Project\test\Killers.Of.The.Flower.Moon.2023.REPACK.1080p.AMZN.WEB-DL.DDP5.1.Atmos.H.264-FLUX\Killers.Of.The.Flower.Moon.2023.REPACK.1080p.AMZN.WEB-DL.DDP5.1.Atmos.H.264-FLUX.简体&英文.ass',
 #     output_file_path='.',
@@ -84,7 +85,7 @@ def change_ass_headers(file, headers):
 # )
 # print(a)
 # srt2ass(r'C:\Users\kingdee\Desktop\Final-Project\test\Killers.Of.The.Flower.Moon.2023.REPACK.1080p.AMZN.WEB-DL.DDP5.1.Atmos.H.264-FLUX\Killers.Of.The.Flower.Moon.2023.REPACK.1080p.AMZN.WEB-DL.DDP5.1.Atmos.H.264-FLUX.简体&英文.srt')
-# fp = r'C:\Users\kingdee\Desktop\Final-Project\test\Killers.Of.The.Flower.Moon.2023.REPACK.1080p.AMZN.WEB-DL.DDP5.1.Atmos.H.264-FLUX\Killers.Of.The.Flower.Moon.2023.REPACK.1080p.AMZN.WEB-DL.DDP5.1.Atmos.H.264-FLUX.简体&英文.srt'
+    fp = r'C:\Users\kingdee\Desktop\Final-Project\test\Killers.Of.The.Flower.Moon.2023.REPACK.1080p.AMZN.WEB-DL.DDP5.1.Atmos.H.264-FLUX\Killers.Of.The.Flower.Moon.2023.REPACK.1080p.AMZN.WEB-DL.DDP5.1.Atmos.H.264-FLUX.简体&英文.srt'
 # input_file_encoding = get_file_encoding(fp)
 #
 # srt_subs = pysubs2.load(fp, encoding=input_file_encoding)
@@ -93,3 +94,5 @@ def change_ass_headers(file, headers):
 #     print(line.text)
 #
 # srt_subs.save('./test1.srt', input_file_encoding, format_='srt')
+
+    convert(fp,'srt',convert_chinese_method='s2t')
