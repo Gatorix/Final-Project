@@ -2,7 +2,7 @@ from PySide6.QtCore import Slot, QDir, QSize
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QMainWindow, QFileDialog, QStyle, QLineEdit, QMessageBox
 
-from src.subtitles.extract_text import extract_text_between_bracket
+from src.utils.files import extract_text_between_bracket
 from src.threads.main_thread import MainThread
 from src.ui.ui_transub import Ui_MainForm
 from src.trans_sub_custom_info import CustomInfoWindow

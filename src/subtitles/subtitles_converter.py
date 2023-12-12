@@ -19,7 +19,9 @@ def convert(
 ):
     input_file_encoding = get_file_encoding(input_file)
     output_file_path = f'./result_{get_current_milli_time()}'
-    output_file = None
+
+    if input_file.split('.')[-1] in convert_to:
+        return {'result': False, 'msg': 'No conversion required.'}
 
     if not os.path.isdir(output_file_path):
         os.mkdir(output_file_path)
@@ -31,8 +33,9 @@ def convert(
 
     if 'txt' in convert_to:
         try:
+            output_file = fr'{output_file_path}/{os.path.basename(input_file)}_Plain_Text.txt'
             with open(
-                    fr'{output_file_path}/{os.path.basename(input_file)}_Plain_Text.txt',
+                    output_file,
                     'a',
                     encoding=input_file_encoding if is_ori_encoding else specified_encoding,
                     errors='ignore' if is_ignore else None
@@ -47,7 +50,7 @@ def convert(
         output_file = f'{output_file_path}/{Path(input_file).stem}.ass'
         subs.save(
             path=output_file,
-            encoding=input_file_encoding,
+            encoding=input_file_encoding if is_ori_encoding else specified_encoding,
             format_='ass'
         )
 
@@ -58,41 +61,36 @@ def convert(
         output_file = f'{output_file_path}/{Path(input_file).stem}.srt'
         subs.save(
             path=output_file,
-            encoding=input_file_encoding,
+            encoding=input_file_encoding if is_ori_encoding else specified_encoding,
             format_='srt'
         )
     else:
-        return
+        return {'result': False, 'msg': 'Unknown subtitle file.'}
 
     if convert_chinese_method:
-        import opencc
-        converter = opencc.OpenCC(convert_chinese_method)
-        print(output_file)
-        # with open(output_file, 'r', encoding=input_file_encoding) as f:
-        #     converter.convert(f.read())
+        convert_chinese_of_file(output_file, convert_chinese_method)
 
 
 def change_ass_headers(file, headers):
     pass
 
-if __name__ == '__main__':
-# a= ass2srt(
-#     r'C:\Users\kingdee\Desktop\Final-Project\test\Killers.Of.The.Flower.Moon.2023.REPACK.1080p.AMZN.WEB-DL.DDP5.1.Atmos.H.264-FLUX\Killers.Of.The.Flower.Moon.2023.REPACK.1080p.AMZN.WEB-DL.DDP5.1.Atmos.H.264-FLUX.简体&英文.ass',
-#     output_file_path='.',
-#     specified_encoding='utf-8',
-#     is_ignore=True,
-#     convert_chinese_method='s2t'
-# )
-# print(a)
-# srt2ass(r'C:\Users\kingdee\Desktop\Final-Project\test\Killers.Of.The.Flower.Moon.2023.REPACK.1080p.AMZN.WEB-DL.DDP5.1.Atmos.H.264-FLUX\Killers.Of.The.Flower.Moon.2023.REPACK.1080p.AMZN.WEB-DL.DDP5.1.Atmos.H.264-FLUX.简体&英文.srt')
-    fp = r'C:\Users\kingdee\Desktop\Final-Project\test\Killers.Of.The.Flower.Moon.2023.REPACK.1080p.AMZN.WEB-DL.DDP5.1.Atmos.H.264-FLUX\Killers.Of.The.Flower.Moon.2023.REPACK.1080p.AMZN.WEB-DL.DDP5.1.Atmos.H.264-FLUX.简体&英文.srt'
-# input_file_encoding = get_file_encoding(fp)
-#
-# srt_subs = pysubs2.load(fp, encoding=input_file_encoding)
-# srt_subs.shift(s=2.5)
-# for line in srt_subs:
-#     print(line.text)
-#
-# srt_subs.save('./test1.srt', input_file_encoding, format_='srt')
 
-    convert(fp,'srt',convert_chinese_method='s2t')
+def convert_chinese_of_file(fp, cc_config):
+    import opencc
+    converter = opencc.OpenCC(cc_config)
+
+    input_file_encoding = get_file_encoding(fp)
+
+    with open(fp, 'r', encoding=input_file_encoding) as in_f:
+        in_f_lines = in_f.readlines()
+    with open(fp, 'w', encoding=input_file_encoding) as out_f:
+        for _ in in_f_lines:
+            out_f.write(converter.convert(_))
+
+
+if __name__ == '__main__':
+    fp1 = r'Z:\Users\caosheng\Documents\Code\Final-Project\test\Killers.Of.The.Flower.Moon.2023.REPACK.1080p.AMZN.WEB-DL.DDP5.1.Atmos.H.264-FLUX\.简体&英文.srt'
+    input_file_encoding1 = get_file_encoding(fp1)
+
+    r=convert(fp1, 'ass', convert_chinese_method='s2t')
+    print(r)

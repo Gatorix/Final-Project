@@ -1,4 +1,5 @@
 import os
+import re
 import sys
 
 from charset_normalizer import detect
@@ -31,6 +32,13 @@ def get_all_filepath(folder):
 def get_file_encoding(file):
     with open(file, 'rb') as f:
         return detect(f.read())['encoding']
+
+
+def extract_text_between_bracket(text):
+    pattern = r'\(.*?\)'
+    matches = re.findall(pattern, text, re.DOTALL)
+    for match in matches:
+        return match[1:-1]
 
 # if __name__ == '__main__':
 #     p = get_all_filepath(
