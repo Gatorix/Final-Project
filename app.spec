@@ -7,7 +7,7 @@ a = Analysis(
     binaries=[],
     datas=[('./src/config/saved_config.yml','./src/config'),
            ('./src/config/logging.yml','./src/config'),
-           ('./icon/qtforpython.ico','./icon')],
+           ('./src/icon/qtforpython.ico','./src/icon')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
