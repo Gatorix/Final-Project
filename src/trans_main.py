@@ -1,5 +1,5 @@
-from PySide6.QtCore import Slot, QDir, QSize, Qt
-from PySide6.QtGui import QIcon
+from PySide6.QtCore import Slot, QDir, QSize, Qt, QRegularExpression
+from PySide6.QtGui import QIcon, QRegularExpressionValidator
 from PySide6.QtWidgets import QMainWindow, QFileDialog, QStyle, QLineEdit, QMessageBox
 
 from src.utils.files import extract_text_between_bracket
@@ -33,6 +33,11 @@ class MainWindow(QMainWindow):
             qApp.style().standardIcon(QStyle.SP_DirOpenIcon),
             QLineEdit.TrailingPosition
         )
+
+        reg = QRegularExpression(r'([1-9]\d*\.?\d*)|(0\.\d*[1-9])')
+        validator = QRegularExpressionValidator(self)
+        validator.setRegularExpression(reg)
+        self.ui.line_edit_offset.setValidator(validator)
 
         self._open_folder_action.triggered.connect(self.on_open_folder)
 
@@ -165,7 +170,7 @@ class MainWindow(QMainWindow):
             self.main_thread.encoding = extract_text_between_bracket(self.ui.combo_box_encoding.currentText())
             self.main_thread.custom_ass_info = Yml().get_specific_details(self.ui.combo_box_custom_info.currentText())
             self.main_thread.convert_chinese = convert_chinese_kv.get(self.ui.combo_box_chinese.currentText())
-            self.main_thread.offset = self.ui.line_edit_offset.text()
+            self.main_thread.offset = float(self.ui.line_edit_offset.text()) if self.ui.line_edit_offset.text() else 0.0
             self.main_thread.convert_to = self.ui.combo_box_convert.currentText()
 
             self.set_start_button_to_disable()
