@@ -24,6 +24,8 @@ class Ui_MainForm(object):
         if not MainForm.objectName():
             MainForm.setObjectName(u"MainForm")
         MainForm.resize(300, 480)
+        MainForm.setMinimumSize(QSize(300, 480))
+        MainForm.setMaximumSize(QSize(300, 480))
         self.settings_group = QGroupBox(MainForm)
         self.settings_group.setObjectName(u"settings_group")
         self.settings_group.setGeometry(QRect(10, 70, 281, 111))
@@ -179,18 +181,18 @@ class Ui_MainForm(object):
         self.check_box_archive = QCheckBox(self.groupBox)
         self.check_box_archive.setObjectName(u"check_box_archive")
         self.check_box_archive.setGeometry(QRect(10, 180, 239, 16))
-        self.widget = QWidget(self.groupBox)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(230, 19, 41, 31))
-        self.gridLayout_8 = QGridLayout(self.widget)
+        self.layoutWidget7 = QWidget(self.groupBox)
+        self.layoutWidget7.setObjectName(u"layoutWidget7")
+        self.layoutWidget7.setGeometry(QRect(230, 19, 41, 31))
+        self.gridLayout_8 = QGridLayout(self.layoutWidget7)
         self.gridLayout_8.setObjectName(u"gridLayout_8")
         self.gridLayout_8.setContentsMargins(0, 0, 0, 0)
-        self.toolButton_add = QToolButton(self.widget)
+        self.toolButton_add = QToolButton(self.layoutWidget7)
         self.toolButton_add.setObjectName(u"toolButton_add")
 
         self.gridLayout_8.addWidget(self.toolButton_add, 0, 0, 1, 1)
 
-        self.toolButton_remove = QToolButton(self.widget)
+        self.toolButton_remove = QToolButton(self.layoutWidget7)
         self.toolButton_remove.setObjectName(u"toolButton_remove")
         self.toolButton_remove.setEnabled(True)
 
