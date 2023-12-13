@@ -1,9 +1,10 @@
 from PySide6.QtCore import Signal, QObject, QThread
 
 from src.subtitles.subtitles_converter import convert
+from src.utils.archive import zip_fp
 from src.utils.times import get_current_milli_time
 from src.utils.yml import logger
-from src.utils.files import get_all_filepath
+from src.utils.files import get_all_filepath, get_dir_name
 
 
 class Signals(QObject):
@@ -40,7 +41,7 @@ class MainThread(QThread):
         self.log.info('Main thread started.')
         self.all_files = get_all_filepath(self.subtitle_path)
 
-        output_file_path = f'./result_{get_current_milli_time()}'
+        output_file_path = f'./{get_dir_name(self.subtitle_path)}_converted_{get_current_milli_time()}'
 
         if not self.all_files:
             self.signals.signal_no_subtitle_files.emit()
@@ -66,6 +67,9 @@ class MainThread(QThread):
                     self.signals.signal_status.emit(result.get('msg'))
 
                 self.signals.signal_process_value.emit(idx + 1)
+
+            if self.is_archive:
+                zip_fp(output_file_path)
 
         self.log.info('Main thread finished.')
         self.finished.emit()

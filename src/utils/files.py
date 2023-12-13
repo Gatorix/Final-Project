@@ -19,6 +19,10 @@ def get_current_path():
     return os.path.dirname(__file__)
 
 
+def get_dir_name(fp):
+    return fp.replace('\\', '/').split('/')[-1]
+
+
 def get_all_filepath(folder):
     # 获取指定路径下的所有*.ass, *.srt, *.vtt文件
     file_path = []
