@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>300</width>
-    <height>480</height>
+    <width>350</width>
+    <height>440</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>300</width>
-    <height>480</height>
+    <width>350</width>
+    <height>440</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>300</width>
-    <height>480</height>
+    <width>350</width>
+    <height>440</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -30,7 +30,7 @@
     <rect>
      <x>10</x>
      <y>70</y>
-     <width>281</width>
+     <width>331</width>
      <height>111</height>
     </rect>
    </property>
@@ -95,7 +95,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Use the original file encoding</string>
+     <string>Use The Original File Encoding</string>
     </property>
     <property name="checked">
      <bool>true</bool>
@@ -123,7 +123,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>281</width>
+     <width>331</width>
      <height>51</height>
     </rect>
    </property>
@@ -134,9 +134,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>20</y>
-      <width>261</width>
-      <height>23</height>
+      <y>12</y>
+      <width>311</width>
+      <height>31</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_3">
@@ -160,8 +160,8 @@
   <widget class="QPushButton" name="button_start">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>410</y>
+     <x>270</x>
+     <y>370</y>
      <width>71</width>
      <height>31</height>
     </rect>
@@ -174,8 +174,8 @@
    <property name="geometry">
     <rect>
      <x>11</x>
-     <y>400</y>
-     <width>201</width>
+     <y>360</y>
+     <width>251</width>
      <height>71</height>
     </rect>
    </property>
@@ -208,8 +208,8 @@
   <widget class="QPushButton" name="button_cancel">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>440</y>
+     <x>270</x>
+     <y>400</y>
      <width>71</width>
      <height>31</height>
     </rect>
@@ -223,8 +223,8 @@
     <rect>
      <x>10</x>
      <y>190</y>
-     <width>281</width>
-     <height>211</height>
+     <width>331</width>
+     <height>171</height>
     </rect>
    </property>
    <property name="title">
@@ -233,9 +233,9 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>100</y>
-      <width>171</width>
+      <x>220</x>
+      <y>60</y>
+      <width>101</width>
       <height>31</height>
      </rect>
     </property>
@@ -243,7 +243,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="label_offset">
        <property name="text">
-        <string>Subtitle Offset </string>
+        <string>Offset</string>
        </property>
       </widget>
      </item>
@@ -264,7 +264,7 @@
      <rect>
       <x>10</x>
       <y>60</y>
-      <width>211</width>
+      <width>201</width>
       <height>31</height>
      </rect>
     </property>
@@ -302,7 +302,7 @@
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>211</width>
+      <width>221</width>
       <height>31</height>
      </rect>
     </property>
@@ -329,8 +329,8 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>140</y>
-      <width>161</width>
+      <y>100</y>
+      <width>231</width>
       <height>31</height>
      </rect>
     </property>
@@ -338,7 +338,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="label_convert">
        <property name="text">
-        <string>Convert to</string>
+        <string>Convert Subtitle Files To</string>
        </property>
       </widget>
      </item>
@@ -367,7 +367,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>180</y>
+      <y>140</y>
       <width>239</width>
       <height>16</height>
      </rect>
@@ -379,27 +379,37 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>19</y>
-      <width>41</width>
+      <x>240</x>
+      <y>20</y>
+      <width>83</width>
       <height>31</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_8">
-     <item row="0" column="0">
+     <item row="0" column="1">
       <widget class="QToolButton" name="toolButton_add">
        <property name="text">
-        <string>+</string>
+        <string/>
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
+     <item row="0" column="2">
       <widget class="QToolButton" name="toolButton_remove">
        <property name="enabled">
         <bool>true</bool>
        </property>
        <property name="text">
-        <string>-</string>
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QToolButton" name="toolButton_edit">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="toolButtonStyle">
+        <enum>Qt::ToolButtonIconOnly</enum>
        </property>
       </widget>
      </item>

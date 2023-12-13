@@ -17,8 +17,39 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
 
         icon = QIcon()
-        icon.addFile(resource_path(fr'{get_parent_path()}\\icon\\qtforpython.ico'), QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(
+            resource_path(fr'{get_parent_path()}\\icon\\qtforpython.ico'),
+            QSize(),
+            QIcon.Normal,
+            QIcon.Off
+        )
         self.setWindowIcon(icon)
+
+        add_button_icon = QIcon()
+        add_button_icon.addFile(
+            resource_path(fr'{get_parent_path()}\\icon\\add.svg'),
+            QSize(),
+            QIcon.Normal,
+            QIcon.Off
+        )
+        self.ui.toolButton_add.setIcon(add_button_icon)
+
+        remove_button_icon = QIcon()
+        remove_button_icon.addFile(
+            resource_path(fr'{get_parent_path()}\\icon\\remove.svg'),
+            QSize(),
+            QIcon.Normal,
+            QIcon.Off
+        )
+        self.ui.toolButton_remove.setIcon(remove_button_icon)
+
+        edit_button_icon = QIcon()
+        edit_button_icon.addFile(
+            resource_path(fr'{get_parent_path()}\\icon\\pencil.svg'),
+            QSize(),
+            QIcon.Normal,
+            QIcon.Off)
+        self.ui.toolButton_edit.setIcon(edit_button_icon)
 
         self.log = logger()
 
@@ -46,6 +77,7 @@ class MainWindow(QMainWindow):
         self.ui.combo_box_convert.currentTextChanged.connect(self.on_convert_combo_changed)
 
         self.ui.toolButton_add.clicked.connect(self.on_tool_button_add_clicked)
+        self.ui.toolButton_edit.clicked.connect(self.on_tool_button_edit_clicked)
         self.ui.toolButton_remove.clicked.connect(self.on_tool_button_remove_clicked)
 
         self.ui.button_start.clicked.connect(self.on_start_clicked)
@@ -72,8 +104,40 @@ class MainWindow(QMainWindow):
         self.ui_custom_info.show()
 
     @Slot()
+    def on_tool_button_edit_clicked(self):
+        if not Yml().get_all_title():
+            QMessageBox().warning(
+                self,
+                'Warning',
+                'There is no saved info, please add one first.'
+            )
+            return
+        self.ui_custom_info.setWindowModality(Qt.ApplicationModal)
+        self.ui_custom_info.show()
+        self.ui_custom_info.ui.line_edit_info_name.setText(
+            f'{self.ui.combo_box_custom_info.currentText()} - edit'
+        )
+        self.ui_custom_info.ui.plain_text_edit.setPlainText(
+            Yml().get_specific_details(self.ui.combo_box_custom_info.currentText())
+        )
+
+    @Slot()
     def on_tool_button_remove_clicked(self):
-        Yml().remove_specific_title(self.ui.combo_box_custom_info.currentText())
+        if not Yml().get_all_title():
+            QMessageBox().warning(
+                self,
+                'Warning',
+                'There is no saved info, Please add one first.'
+            )
+            return
+
+        if QMessageBox.question(
+                self,
+                'Question',
+                f'Are you sure you want to delete info [{self.ui.combo_box_custom_info.currentText()}]?'
+        ) == QMessageBox.StandardButton.Yes:
+            Yml().remove_specific_title(self.ui.combo_box_custom_info.currentText())
+
         self.refresh_custom_info()
 
     @Slot()

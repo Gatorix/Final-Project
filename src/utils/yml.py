@@ -32,7 +32,7 @@ class Yml:
 
     def write_info_to_yml(self, title, details):
         if title in self.get_all_title():
-            return {'result': False, 'msg': 'Title cannot be repeated.'}
+            return {'result': False, 'msg': 'Title cannot repeat.'}
         try:
             with open(self.file_path, 'a', encoding='utf-8') as file:
                 yaml.dump({title: details}, file, default_style='>')

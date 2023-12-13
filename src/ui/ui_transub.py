@@ -23,12 +23,12 @@ class Ui_MainForm(object):
     def setupUi(self, MainForm):
         if not MainForm.objectName():
             MainForm.setObjectName(u"MainForm")
-        MainForm.resize(300, 480)
-        MainForm.setMinimumSize(QSize(300, 480))
-        MainForm.setMaximumSize(QSize(300, 480))
+        MainForm.resize(350, 440)
+        MainForm.setMinimumSize(QSize(350, 440))
+        MainForm.setMaximumSize(QSize(350, 440))
         self.settings_group = QGroupBox(MainForm)
         self.settings_group.setObjectName(u"settings_group")
-        self.settings_group.setGeometry(QRect(10, 70, 281, 111))
+        self.settings_group.setGeometry(QRect(10, 70, 331, 111))
         self.layoutWidget = QWidget(self.settings_group)
         self.layoutWidget.setObjectName(u"layoutWidget")
         self.layoutWidget.setGeometry(QRect(10, 70, 261, 31))
@@ -60,10 +60,10 @@ class Ui_MainForm(object):
         self.check_box_ignore_error.setChecked(True)
         self.folder_group = QGroupBox(MainForm)
         self.folder_group.setObjectName(u"folder_group")
-        self.folder_group.setGeometry(QRect(10, 10, 281, 51))
+        self.folder_group.setGeometry(QRect(10, 10, 331, 51))
         self.layoutWidget1 = QWidget(self.folder_group)
         self.layoutWidget1.setObjectName(u"layoutWidget1")
-        self.layoutWidget1.setGeometry(QRect(10, 20, 261, 23))
+        self.layoutWidget1.setGeometry(QRect(10, 12, 311, 31))
         self.gridLayout_3 = QGridLayout(self.layoutWidget1)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
@@ -80,10 +80,10 @@ class Ui_MainForm(object):
 
         self.button_start = QPushButton(MainForm)
         self.button_start.setObjectName(u"button_start")
-        self.button_start.setGeometry(QRect(220, 410, 71, 31))
+        self.button_start.setGeometry(QRect(270, 370, 71, 31))
         self.layoutWidget2 = QWidget(MainForm)
         self.layoutWidget2.setObjectName(u"layoutWidget2")
-        self.layoutWidget2.setGeometry(QRect(11, 400, 201, 71))
+        self.layoutWidget2.setGeometry(QRect(11, 360, 251, 71))
         self.gridLayout_6 = QGridLayout(self.layoutWidget2)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
         self.gridLayout_6.setContentsMargins(0, 0, 0, 0)
@@ -103,13 +103,13 @@ class Ui_MainForm(object):
 
         self.button_cancel = QPushButton(MainForm)
         self.button_cancel.setObjectName(u"button_cancel")
-        self.button_cancel.setGeometry(QRect(220, 440, 71, 31))
+        self.button_cancel.setGeometry(QRect(270, 400, 71, 31))
         self.groupBox = QGroupBox(MainForm)
         self.groupBox.setObjectName(u"groupBox")
-        self.groupBox.setGeometry(QRect(10, 190, 281, 211))
+        self.groupBox.setGeometry(QRect(10, 190, 331, 171))
         self.layoutWidget3 = QWidget(self.groupBox)
         self.layoutWidget3.setObjectName(u"layoutWidget3")
-        self.layoutWidget3.setGeometry(QRect(10, 100, 171, 31))
+        self.layoutWidget3.setGeometry(QRect(220, 60, 101, 31))
         self.gridLayout_4 = QGridLayout(self.layoutWidget3)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.gridLayout_4.setContentsMargins(0, 0, 0, 0)
@@ -125,7 +125,7 @@ class Ui_MainForm(object):
 
         self.layoutWidget4 = QWidget(self.groupBox)
         self.layoutWidget4.setObjectName(u"layoutWidget4")
-        self.layoutWidget4.setGeometry(QRect(10, 60, 211, 31))
+        self.layoutWidget4.setGeometry(QRect(10, 60, 201, 31))
         self.gridLayout_5 = QGridLayout(self.layoutWidget4)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.gridLayout_5.setContentsMargins(0, 0, 0, 0)
@@ -144,7 +144,7 @@ class Ui_MainForm(object):
 
         self.layoutWidget5 = QWidget(self.groupBox)
         self.layoutWidget5.setObjectName(u"layoutWidget5")
-        self.layoutWidget5.setGeometry(QRect(10, 20, 211, 31))
+        self.layoutWidget5.setGeometry(QRect(10, 20, 221, 31))
         self.gridLayout_7 = QGridLayout(self.layoutWidget5)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
         self.gridLayout_7.setContentsMargins(0, 0, 0, 0)
@@ -161,7 +161,7 @@ class Ui_MainForm(object):
 
         self.layoutWidget6 = QWidget(self.groupBox)
         self.layoutWidget6.setObjectName(u"layoutWidget6")
-        self.layoutWidget6.setGeometry(QRect(10, 140, 161, 31))
+        self.layoutWidget6.setGeometry(QRect(10, 100, 231, 31))
         self.gridLayout = QGridLayout(self.layoutWidget6)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
@@ -180,23 +180,29 @@ class Ui_MainForm(object):
 
         self.check_box_archive = QCheckBox(self.groupBox)
         self.check_box_archive.setObjectName(u"check_box_archive")
-        self.check_box_archive.setGeometry(QRect(10, 180, 239, 16))
+        self.check_box_archive.setGeometry(QRect(10, 140, 239, 16))
         self.layoutWidget7 = QWidget(self.groupBox)
         self.layoutWidget7.setObjectName(u"layoutWidget7")
-        self.layoutWidget7.setGeometry(QRect(230, 19, 41, 31))
+        self.layoutWidget7.setGeometry(QRect(240, 20, 83, 31))
         self.gridLayout_8 = QGridLayout(self.layoutWidget7)
         self.gridLayout_8.setObjectName(u"gridLayout_8")
         self.gridLayout_8.setContentsMargins(0, 0, 0, 0)
         self.toolButton_add = QToolButton(self.layoutWidget7)
         self.toolButton_add.setObjectName(u"toolButton_add")
 
-        self.gridLayout_8.addWidget(self.toolButton_add, 0, 0, 1, 1)
+        self.gridLayout_8.addWidget(self.toolButton_add, 0, 1, 1, 1)
 
         self.toolButton_remove = QToolButton(self.layoutWidget7)
         self.toolButton_remove.setObjectName(u"toolButton_remove")
         self.toolButton_remove.setEnabled(True)
 
-        self.gridLayout_8.addWidget(self.toolButton_remove, 0, 1, 1, 1)
+        self.gridLayout_8.addWidget(self.toolButton_remove, 0, 2, 1, 1)
+
+        self.toolButton_edit = QToolButton(self.layoutWidget7)
+        self.toolButton_edit.setObjectName(u"toolButton_edit")
+        self.toolButton_edit.setToolButtonStyle(Qt.ToolButtonIconOnly)
+
+        self.gridLayout_8.addWidget(self.toolButton_edit, 0, 0, 1, 1)
 
 
         self.retranslateUi(MainForm)
@@ -214,7 +220,7 @@ class Ui_MainForm(object):
         self.combo_box_encoding.setItemText(4, QCoreApplication.translate("MainForm", u"Japanese (Shift-JIS)", None))
 
         self.label_encoding.setText(QCoreApplication.translate("MainForm", u"Encoding", None))
-        self.check_box_is_original_encoding.setText(QCoreApplication.translate("MainForm", u"Use the original file encoding", None))
+        self.check_box_is_original_encoding.setText(QCoreApplication.translate("MainForm", u"Use The Original File Encoding", None))
         self.check_box_ignore_error.setText(QCoreApplication.translate("MainForm", u"Ignore Encoding Errors", None))
         self.folder_group.setTitle(QCoreApplication.translate("MainForm", u"Select File Path", None))
         self.label_path.setText(QCoreApplication.translate("MainForm", u"Path", None))
@@ -222,7 +228,7 @@ class Ui_MainForm(object):
         self.label_status.setText(QCoreApplication.translate("MainForm", u"Click \"Start\" when you're ready.", None))
         self.button_cancel.setText(QCoreApplication.translate("MainForm", u"Cancel", None))
         self.groupBox.setTitle(QCoreApplication.translate("MainForm", u"Subtitle Settings", None))
-        self.label_offset.setText(QCoreApplication.translate("MainForm", u"Subtitle Offset ", None))
+        self.label_offset.setText(QCoreApplication.translate("MainForm", u"Offset", None))
         self.line_edit_offset.setText("")
         self.line_edit_offset.setPlaceholderText(QCoreApplication.translate("MainForm", u"0.0", None))
         self.label_chinese.setText(QCoreApplication.translate("MainForm", u"Convert Chinese", None))
@@ -233,13 +239,14 @@ class Ui_MainForm(object):
         self.label_chinese_2.setText(QCoreApplication.translate("MainForm", u"Custom *.ass Info", None))
         self.combo_box_custom_info.setItemText(0, QCoreApplication.translate("MainForm", u"None", None))
 
-        self.label_convert.setText(QCoreApplication.translate("MainForm", u"Convert to", None))
+        self.label_convert.setText(QCoreApplication.translate("MainForm", u"Convert Subtitle Files To", None))
         self.combo_box_convert.setItemText(0, QCoreApplication.translate("MainForm", u"*.ass", None))
         self.combo_box_convert.setItemText(1, QCoreApplication.translate("MainForm", u"*.srt", None))
         self.combo_box_convert.setItemText(2, QCoreApplication.translate("MainForm", u"*.txt", None))
 
         self.check_box_archive.setText(QCoreApplication.translate("MainForm", u"Archive Results Into Single ZIP File", None))
-        self.toolButton_add.setText(QCoreApplication.translate("MainForm", u"+", None))
-        self.toolButton_remove.setText(QCoreApplication.translate("MainForm", u"-", None))
+        self.toolButton_add.setText("")
+        self.toolButton_remove.setText("")
+        self.toolButton_edit.setText("")
     # retranslateUi
 
