@@ -125,7 +125,7 @@ class Ui_MainForm(object):
 
         self.layoutWidget4 = QWidget(self.groupBox)
         self.layoutWidget4.setObjectName(u"layoutWidget4")
-        self.layoutWidget4.setGeometry(QRect(10, 60, 201, 31))
+        self.layoutWidget4.setGeometry(QRect(10, 60, 208, 31))
         self.gridLayout_5 = QGridLayout(self.layoutWidget4)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.gridLayout_5.setContentsMargins(0, 0, 0, 0)
@@ -211,7 +211,7 @@ class Ui_MainForm(object):
     # setupUi
 
     def retranslateUi(self, MainForm):
-        MainForm.setWindowTitle(QCoreApplication.translate("MainForm", u"Form", None))
+        MainForm.setWindowTitle(QCoreApplication.translate("MainForm", u"TranSub", None))
         self.settings_group.setTitle(QCoreApplication.translate("MainForm", u"Encode Settings", None))
         self.combo_box_encoding.setItemText(0, QCoreApplication.translate("MainForm", u"Unicode (UTF-8)", None))
         self.combo_box_encoding.setItemText(1, QCoreApplication.translate("MainForm", u"Unicode (UTF-16)", None))
