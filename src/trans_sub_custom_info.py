@@ -1,4 +1,5 @@
 from PySide6.QtCore import Slot, QObject, Signal
+from PySide6.QtGui import Qt
 from PySide6.QtWidgets import QMainWindow, QMessageBox
 
 from src.ui.ui_transub_custom_info import Ui_SubCustomInfo
@@ -30,6 +31,8 @@ class CustomInfoWindow(QMainWindow):
         super(CustomInfoWindow, self).__init__()
         self.ui = Ui_SubCustomInfo()
         self.ui.setupUi(self)
+
+        self.setWindowFlags(Qt.WindowType.WindowCloseButtonHint | Qt.WindowType.WindowTitleHint)
 
         self.log = logger()
 

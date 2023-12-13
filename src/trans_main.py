@@ -1,4 +1,4 @@
-from PySide6.QtCore import Slot, QDir, QSize
+from PySide6.QtCore import Slot, QDir, QSize, Qt
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QMainWindow, QFileDialog, QStyle, QLineEdit, QMessageBox
 
@@ -63,6 +63,7 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def on_tool_button_add_clicked(self):
+        self.ui_custom_info.setWindowModality(Qt.ApplicationModal)
         self.ui_custom_info.show()
 
     @Slot()
