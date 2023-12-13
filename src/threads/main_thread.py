@@ -49,7 +49,7 @@ class MainThread(QThread):
 
             for idx, file in enumerate(self.all_files):
                 self.log.info(f'Processing {file}')
-                self.signals.signal_status.emit(f'Processing({idx+1}-{len(self.all_files)}): {file}')
+                self.signals.signal_status.emit(f'Processing({idx + 1}-{len(self.all_files)}): {file}')
 
                 result = convert(
                     input_file=file,

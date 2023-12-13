@@ -4,7 +4,6 @@ from pathlib import Path
 import pysubs2
 
 from src.utils.files import get_file_encoding
-from src.utils.times import get_current_milli_time
 
 
 def convert(
@@ -77,8 +76,15 @@ def convert(
     return {'result': True, 'msg': 'Convert successful.'}
 
 
-def change_ass_headers(file, headers):
-    pass
+def change_ass_headers(file, headers: str):
+    input_file_encoding = get_file_encoding(file)
+
+    with open(file, 'r', encoding=input_file_encoding) as in_file:
+        in_file_lines = in_file.readlines()
+
+    with open(file, 'w', encoding=input_file_encoding) as out_file:
+        out_file.write(f'{headers}\n\n')
+        out_file.writelines(in_file_lines[in_file_lines.index('[Events]\n'):])
 
 
 def convert_chinese_of_file(fp, cc_config, encoding):
@@ -87,13 +93,7 @@ def convert_chinese_of_file(fp, cc_config, encoding):
 
     with open(fp, 'r', encoding=encoding) as in_f:
         in_f_lines = in_f.readlines()
+
     with open(fp, 'w', encoding=encoding) as out_f:
         for _ in in_f_lines:
             out_f.write(converter.convert(_))
-
-# if __name__ == '__main__':
-#     fp1 = r'Z:\Users\caosheng\Documents\Code\Final-Project\test\Killers.Of.The.Flower.Moon.2023.REPACK.1080p.AMZN.WEB-DL.DDP5.1.Atmos.H.264-FLUX\.简体&英文.srt'
-#     input_file_encoding1 = get_file_encoding(fp1)
-#
-#     r=convert(fp1, 'ass', convert_chinese_method='s2t')
-#     print(r)

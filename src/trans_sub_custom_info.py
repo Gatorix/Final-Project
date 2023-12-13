@@ -80,7 +80,7 @@ class CustomInfoWindow(QMainWindow):
         else:
             save_result = self.save_info_to_yml(
                 self.ui.line_edit_info_name.text(),
-                self.ui.plain_text_edit.toPlainText()
+                self.ui.plain_text_edit.toPlainText().strip('\n')
             )
             if save_result.get('result'):
                 self.is_changed = False
